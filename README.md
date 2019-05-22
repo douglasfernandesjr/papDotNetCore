@@ -1,4 +1,4 @@
-# papSpringBoot  - Passo a Passo : DotNet Core
+# papDotNetCore  - Passo a Passo : DotNet Core
 
 A proposta deste repositório é criar um tutorial passo a passo para ensinar DotNet Core e AspNet Core. A versão que está sendo usada para a construção deste tutorial é o **DotNet Core 2.1**..
 
