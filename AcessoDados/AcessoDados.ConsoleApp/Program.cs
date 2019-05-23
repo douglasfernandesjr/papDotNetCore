@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AcessoDados.DAL.AdoNet;
+using System;
 
 namespace AcessoDados.ConsoleApp
 {
@@ -6,7 +7,14 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			var conexao = new ConexaoSimples();
+
+			foreach (var col in conexao.ListarColaboradores())
+			{
+				Console.WriteLine($"{col.Id}\t{col.FirstName}\t{col.LastName} ");
+			}
+
+			Console.ReadKey();
 		}
 	}
 }
