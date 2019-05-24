@@ -1,4 +1,5 @@
-﻿using AcessoDados.DAL.EntityDBFirst;
+﻿using AcessoDados.DAL.EntityCodeFirst;
+using AcessoDados.DAL.EntityDBFirst;
 using System;
 using System.Linq;
 
@@ -8,13 +9,13 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var context = new bancotesteContext();
+			var context = new CodeFirstDBContext();
 
-			var resultadoLista = context.Customer.Take(50).ToList();
+			var resultadoLista = context.Video.Take(50).ToList();
 
 			foreach (var col in resultadoLista)
 			{
-				Console.WriteLine($"{col.Id}\t{col.FirstName}\t{col.LastName} ");
+				Console.WriteLine($"{col.IdVideo}");
 			}
 
 			Console.ReadKey();
