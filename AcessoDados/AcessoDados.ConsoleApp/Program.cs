@@ -1,5 +1,6 @@
-﻿using AcessoDados.DAL.AdoNet;
+﻿using AcessoDados.DAL.EntityDBFirst;
 using System;
+using System.Linq;
 
 namespace AcessoDados.ConsoleApp
 {
@@ -7,9 +8,11 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var conexao = new ConexaoSimples();
+			var context = new bancotesteContext();
 
-			foreach (var col in conexao.ListarColaboradores())
+			var resultadoLista = context.Customer.Take(50).ToList();
+
+			foreach (var col in resultadoLista)
 			{
 				Console.WriteLine($"{col.Id}\t{col.FirstName}\t{col.LastName} ");
 			}
