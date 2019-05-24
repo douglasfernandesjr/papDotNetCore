@@ -1,4 +1,5 @@
 ﻿using AcessoDados.DAL.EntityCodeFirst;
+using AcessoDados.DAL.EntityCodeFirst.Modelos;
 using AcessoDados.DAL.EntityDBFirst;
 using System;
 using System.Linq;
@@ -9,13 +10,13 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var context = new CodeFirstDBContext();
+			var repositorio = new RepositorioCategoria();
 
-			var resultadoLista = context.Video.Take(50).ToList();
+			repositorio.Inserir(new Categoria() { Nome = "Categoria 1", DataCriacao = DateTime.Now, UsuarioCriacao = "Douglas" });
 
-			foreach (var col in resultadoLista)
+			foreach (var col in repositorio.Listar())
 			{
-				Console.WriteLine($"{col.IdVideo}");
+				Console.WriteLine($"{col.Nome}");
 			}
 
 			Console.ReadKey();
