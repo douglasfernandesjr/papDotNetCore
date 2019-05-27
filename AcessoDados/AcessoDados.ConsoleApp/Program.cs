@@ -1,5 +1,6 @@
 ﻿using AcessoDados.DAL.EntityDBFirst;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AcessoDados.ConsoleApp
@@ -10,7 +11,7 @@ namespace AcessoDados.ConsoleApp
 		{
 			var context = new bancotesteContext();
 
-			var resultadoLista = context.Customer.Take(50).ToList();
+			List<Customer> resultadoLista = context.Customer.Take(50).ToList();
 
 			foreach (var col in resultadoLista)
 			{
