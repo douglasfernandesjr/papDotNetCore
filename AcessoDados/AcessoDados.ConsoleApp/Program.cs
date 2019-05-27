@@ -1,4 +1,5 @@
 ﻿using AcessoDados.DAL.EntityCodeFirst;
+using AcessoDados.DAL.EntityCodeFirst.Modelos;
 using AcessoDados.DAL.EntityDBFirst;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace AcessoDados.ConsoleApp
 		{
 			var context = new CodeFirstDBContext();
 
-			var resultadoLista = context.Video.Take(50).ToList();
+			List<Video> resultadoLista = context.Video.Take(50).ToList();
 
 			foreach (var col in resultadoLista)
 			{
