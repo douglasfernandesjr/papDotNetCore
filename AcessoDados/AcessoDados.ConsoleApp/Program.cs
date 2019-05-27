@@ -1,6 +1,7 @@
 ﻿using AcessoDados.DAL.EntityCodeFirst;
 using AcessoDados.DAL.EntityDBFirst;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AcessoDados.ConsoleApp
