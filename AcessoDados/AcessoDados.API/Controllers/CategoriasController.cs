@@ -17,7 +17,7 @@ namespace AcessoDados.API.Controllers
 		}
 
 		[HttpGet]
-		public List<CategoriaResponseModel> Get() {
+		public ActionResult<List<CategoriaResponseModel>> Get() {
 			return _svc.ListarCategorias();
 		}
 	}
