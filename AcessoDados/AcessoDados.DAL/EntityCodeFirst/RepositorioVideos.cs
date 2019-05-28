@@ -1,6 +1,7 @@
 ﻿using AcessoDados.DAL.EntityCodeFirst.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 
@@ -47,6 +48,22 @@ namespace AcessoDados.DAL.EntityCodeFirst
 				query = query.Include("VideoCategorias.Categoria");
 
 				return query.FirstOrDefault();
+			}
+		}
+
+		public List<Video> ListarVideosCompletos()
+		{
+			using (var db = new CodeFirstDBContext())
+			{
+				IQueryable<Video> query = db.Video.Where(x => !x.FlagExcluido);
+
+				//Indica que deve trazer a entidade Responsável
+				query = query.Include(x => x.Responsavel);
+
+				//Indica de deve trazer a Entidade Categoria associada através da VideoCategoria
+				query = query.Include("VideoCategorias.Categoria");
+
+				return query.ToList();
 			}
 		}
 	}

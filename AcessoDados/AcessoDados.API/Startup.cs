@@ -45,7 +45,8 @@ namespace AcessoDados.API
 
 
 			//Adiciona os servicos
-			services.AddTransient<CategoriaService>(); // Usa oespecifico
+			services.AddTransient<CategoriaService>(); //
+			services.AddTransient<VideoService>(); //
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcessoDados.DAL", "AcessoDa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcessoDados.BLL", "AcessoDados.BLL\AcessoDados.BLL.csproj", "{3E54BE6F-0247-4A74-B83C-239FD63F720E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcessoDados.DL", "AcessoDados.DL\AcessoDados.DL.csproj", "{BC4007FC-F98E-4E70-8618-E4D5DFDEF54A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcessoDados.DL", "AcessoDados.DL\AcessoDados.DL.csproj", "{BC4007FC-F98E-4E70-8618-E4D5DFDEF54A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcessoDados.API", "AcessoDados.API\AcessoDados.API.csproj", "{4940B282-2AD5-4067-A365-7315BA35AC71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcessoDados.API", "AcessoDados.API\AcessoDados.API.csproj", "{4940B282-2AD5-4067-A365-7315BA35AC71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
