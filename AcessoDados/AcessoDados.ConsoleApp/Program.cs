@@ -10,15 +10,14 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var repositorio = new RepositorioCategoria();
+			//É possível usar através de um repositório criado por herança.
+			var repositorioCat = new RepositorioCategoria();
 
-			repositorio.Inserir(new Categoria() { Nome = "Categoria 1", DataCriacao = DateTime.Now, UsuarioCriacao = "Douglas" });
-
-			foreach (var col in repositorio.Listar())
+			foreach (var col in repositorioCat.Listar())
 			{
 				Console.WriteLine($"{col.Nome}");
 			}
-
+						
 			Console.ReadKey();
 		}
 	}
