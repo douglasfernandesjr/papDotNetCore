@@ -1,18 +1,31 @@
 ﻿using AcessoDados.DAL.EntityCodeFirst.Modelos;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 
 namespace AcessoDados.DAL.EntityCodeFirst
 {
 	public class RepositorioComum<T> where T : EntidadeBancoBase, new()
 	{
+		protected IPrincipal _user;
+		public RepositorioComum(IPrincipal currentUser)
+		{
+			_user = currentUser;
+		}
+
+		protected virtual void AtualizarValoresPadroes(T modelo) {
+			modelo.UsuarioCriacao = _user.Identity.Name == null ? "admin" : _user.Identity.Name;
+			modelo.DataCriacao = DateTime.Now;
+		}
+
 		public T Inserir(T modelo)
 		{
 			using (var db = new CodeFirstDBContext())
 			{
 				db.ChangeTracker.AutoDetectChangesEnabled = false;
-
+				AtualizarValoresPadroes(modelo);
 				db.Set<T>().Add(modelo);
 
 				db.SaveChanges();

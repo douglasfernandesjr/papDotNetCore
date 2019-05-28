@@ -8,12 +8,18 @@ namespace AcessoDados.BLL.Services
 {
 	public class CategoriaService
 	{
+		private RepositorioComum<Categoria> _repositorio;
+
+		public CategoriaService(RepositorioComum<Categoria> repositorio)
+		{
+			_repositorio = repositorio;
+		}
+
 		public List<CategoriaResponseModel> ListarCategorias()
 		{
 			var listaRetorno = new List<CategoriaResponseModel>();  // cria uma lista vazia
-			var repositorio = new RepositorioCategoria();
 
-			var lista = repositorio.Listar();
+			var lista = _repositorio.Listar();
 
 			if (lista != null && lista.Any())
 			{

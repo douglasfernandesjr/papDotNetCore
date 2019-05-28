@@ -10,10 +10,15 @@ namespace AcessoDados.API.Controllers
 	[ApiController]
 	public class CategoriasController : ControllerBase
 	{
+		private CategoriaService _svc;
+		public CategoriasController(CategoriaService svc)
+		{
+			_svc = svc;
+		}
+
 		[HttpGet]
 		public List<CategoriaResponseModel> Get() {
-			var svc = new CategoriaService();
-			return svc.ListarCategorias();
+			return _svc.ListarCategorias();
 		}
 	}
 }

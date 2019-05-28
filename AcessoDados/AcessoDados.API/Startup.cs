@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
+using AcessoDados.BLL.Services;
+using AcessoDados.DAL.EntityCodeFirst;
+using AcessoDados.DAL.EntityCodeFirst.Modelos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +31,22 @@ namespace AcessoDados.API
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+
+			//Disponibilizar o usuário logado através de DI
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			services.AddTransient<IPrincipal>
+				(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
+
+			//Adiciona os repositórios
+			services.AddScoped<RepositorioVideos>(); // Usa oespecifico
+			services.AddScoped<RepositorioComum<Categoria>>(); // cria instâncias genericas
+			services.AddScoped<RepositorioComum<Responsavel>>();// cria instâncias genericas
+			services.AddScoped<RepositorioComum<VideoCategoria>>();// cria instâncias genericas
+
+
+			//Adiciona os servicos
+			services.AddTransient<CategoriaService>(); // Usa oespecifico
+
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 			// Register the Swagger generator, defining 1 or more Swagger documents
