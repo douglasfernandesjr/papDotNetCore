@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AcessoDados.BLL\AcessoDados.BLL.csproj" />
     <ProjectReference Include="..\AcessoDados.DAL\AcessoDados.DAL.csproj" />
-    <ProjectReference Include="..\AcessoDados.DL\AcessoDados.DL.csproj" />
   </ItemGroup>
 
 </Project>
