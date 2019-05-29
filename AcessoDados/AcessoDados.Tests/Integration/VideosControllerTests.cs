@@ -102,6 +102,16 @@ namespace AcessoDados.Tests.Integration
 					ListaCategorias = new int[]{ 1}
 				},
 				HttpStatusCode.BadRequest
+				},
+			new object[] {
+				new VideoCreateRequest(){
+					IdadeMinima = 7,
+					Titulo = "Título",
+					Url = "URL",
+					IdResponsavel = 1,
+					ListaCategorias = new int[]{ 100000,1233455}
+				},
+				HttpStatusCode.BadRequest
 				}
 			}
 			;
