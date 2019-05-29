@@ -101,7 +101,7 @@ namespace AcessoDados.Tests.Integration
 					IdResponsavel = 1,
 					ListaCategorias = new int[]{ 1}
 				},
-				HttpStatusCode.BadRequest
+				HttpStatusCode.OK
 				},
 			new object[] {
 				new VideoCreateRequest(){
