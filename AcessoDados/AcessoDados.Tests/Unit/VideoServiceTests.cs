@@ -18,7 +18,9 @@ namespace AcessoDados.Tests.Unit
 		{
 			//será necessário resolver as dependências manualmente instânciar
 			//nos permitindo mockar dados
-			var repo = new RepositorioVideos(base.GetMockUser(), new RepositorioComum<VideoCategoria>(base.GetMockUser()));
+			var repo = new RepositorioVideos(base.GetMockUser(),
+			new RepositorioComum<VideoCategoria>(base.GetMockUser()),
+			new RepositorioComum<Responsavel>(base.GetMockUser()));
 			_service = new VideoService(repo);
 
 		}
@@ -79,7 +81,7 @@ namespace AcessoDados.Tests.Unit
 		{
 			var result = _service.InserirVideo(model);
 
-			Assert.True((result == null) == equalsNull) ;
+			Assert.True((result == null) == equalsNull);
 		}
 	}
 }

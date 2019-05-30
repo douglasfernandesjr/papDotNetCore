@@ -10,25 +10,37 @@ namespace AcessoDados.DAL.EntityCodeFirst
 	public class RepositorioVideos : RepositorioComum<Video>
 	{
 		private RepositorioComum<VideoCategoria> _repoVideoCategoria;
+		private RepositorioComum<Responsavel> _repoResponsavel;
 
-		public RepositorioVideos(IPrincipal currentUser, RepositorioComum<VideoCategoria> repoVideoCategoria)
+		public RepositorioVideos(IPrincipal currentUser,
+		RepositorioComum<VideoCategoria> repoVideoCategoria,
+		RepositorioComum<Responsavel> repoResponsavel)
 			: base(currentUser)
 		{
 			_repoVideoCategoria = repoVideoCategoria;
+			_repoResponsavel = repoResponsavel;
 		}
 
 		public Video InserirVideo(Video modelo, int[] idCategorias)
 		{
+			if (_repoResponsavel.Obter(modelo.IdResponsavel) == null)
+				return null;
+
 			this.Inserir(modelo);
 
 			if (idCategorias != null)
 			{
 				foreach (int id in idCategorias)
-					_repoVideoCategoria.Inserir(new VideoCategoria()
+				{
+					if (_repoVideoCategoria.Obter(id) != null) // Validação para somente inserir se a categoria existir
 					{
-						IdVideo = modelo.IdVideo,
-						IdCategoria = id,
-					});
+						_repoVideoCategoria.Inserir(new VideoCategoria()
+						{
+							IdVideo = modelo.IdVideo,
+							IdCategoria = id,
+						});
+					}
+				}
 			}
 
 			return ObterVideoCompleto(modelo.IdVideo);

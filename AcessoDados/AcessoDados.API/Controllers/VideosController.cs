@@ -29,7 +29,12 @@ namespace AcessoDados.API.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				return Ok(_svc.InserirVideo(model));
+				var retorno = _svc.InserirVideo(model);
+
+				if (retorno != null)
+					return Ok(retorno);
+				else
+					return BadRequest();
 			}
 
 			return BadRequest(ModelState);

@@ -42,6 +42,14 @@ namespace AcessoDados.DAL.EntityCodeFirst
 			}
 		}
 
+		public T Obter(int id)
+		{
+			using (var db = new CodeFirstDBContext())
+			{
+				return db.Set<T>().Find(id);
+			}
+		}
+
 		public void Excluir(T modelo)
 		{
 			using (var db = new CodeFirstDBContext())

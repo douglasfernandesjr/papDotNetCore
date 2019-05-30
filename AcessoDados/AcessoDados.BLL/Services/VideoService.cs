@@ -51,6 +51,9 @@ namespace AcessoDados.BLL.Services
 
 		private VideoResponseModel Converter(Video model)
 		{
+			if (model == null)
+				return null;
+
 			var response = new VideoResponseModel()
 			{
 				Id = model.IdVideo,
