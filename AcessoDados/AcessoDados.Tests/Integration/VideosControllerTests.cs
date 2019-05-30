@@ -111,7 +111,7 @@ namespace AcessoDados.Tests.Integration
 					IdResponsavel = 1,
 					ListaCategorias = new int[]{ 100000,1233455}
 				},
-				HttpStatusCode.BadRequest
+				HttpStatusCode.OK
 				}
 			}
 			;
