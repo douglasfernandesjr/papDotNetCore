@@ -18,6 +18,9 @@ namespace AcessoDados.BLL.Services
 
 		public VideoResponseModel InserirVideo(VideoCreateRequest model)
 		{
+			if (model == null)
+				return null;
+
 			var video = new Video()
 			{
 				IdResponsavel = model.IdResponsavel,
