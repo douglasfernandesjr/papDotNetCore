@@ -11,15 +11,6 @@ namespace AcessoDados.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var context = new CodeFirstDBContext();
-
-			List<Video> resultadoLista = context.Video.Take(50).ToList();
-
-			foreach (var col in resultadoLista)
-			{
-				Console.WriteLine($"{col.IdVideo}");
-			}
-
 			Console.ReadKey();
 		}
 	}

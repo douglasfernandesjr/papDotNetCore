@@ -12,7 +12,7 @@ namespace AcessoDados.DAL.EntityCodeFirst.Modelos
 
 		[Required]
 		[StringLength(255)]
-		public int Nome { get; set; }
+		public string Nome { get; set; }
 
 		public virtual ICollection<Video> Videos { get; set; }
 	}
