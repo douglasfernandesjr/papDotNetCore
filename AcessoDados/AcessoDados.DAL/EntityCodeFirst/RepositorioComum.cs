@@ -7,7 +7,8 @@ using System.Security.Principal;
 
 namespace AcessoDados.DAL.EntityCodeFirst
 {
-	public class RepositorioComum<T> where T : EntidadeBancoBase, new()
+	public class RepositorioComum<T> : IRepositorioComum<T>
+	where T : EntidadeBancoBase, new()
 	{
 		protected IPrincipal _user;
 		public RepositorioComum(IPrincipal currentUser)

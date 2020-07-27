@@ -38,10 +38,10 @@ namespace AcessoDados.API
 				(provider => provider.GetService<IHttpContextAccessor>().HttpContext.User);
 
 			//Adiciona os repositórios
-			services.AddScoped<RepositorioVideos>(); // Usa oespecifico
-			services.AddScoped<RepositorioComum<Categoria>>(); // cria instâncias genericas
-			services.AddScoped<RepositorioComum<Responsavel>>();// cria instâncias genericas
-			services.AddScoped<RepositorioComum<VideoCategoria>>();// cria instâncias genericas
+			services.AddScoped<IRepositorioVideos, RepositorioVideos>(); // Usa oespecifico
+			services.AddScoped<IRepositorioComum<Categoria>, RepositorioComum<Categoria>>(); // cria instâncias genericas
+			services.AddScoped<IRepositorioComum<Responsavel>, RepositorioComum<Responsavel>>();// cria instâncias genericas
+			services.AddScoped<IRepositorioComum<VideoCategoria>, RepositorioComum<VideoCategoria>>();// cria instâncias genericas
 
 
 			//Adiciona os servicos
