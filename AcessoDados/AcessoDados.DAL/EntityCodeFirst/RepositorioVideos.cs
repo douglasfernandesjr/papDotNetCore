@@ -7,7 +7,7 @@ using System.Security.Principal;
 
 namespace AcessoDados.DAL.EntityCodeFirst
 {
-	public class RepositorioVideos : RepositorioComum<Video>
+	public class RepositorioVideos : RepositorioComum<Video>, IRepositorioVideos
 	{
 		private RepositorioComum<VideoCategoria> _repoVideoCategoria;
 		private RepositorioComum<Responsavel> _repoResponsavel;
