@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AcessoDados.DAL.EntityCodeFirst
 {
-	interface IRepositorioVideos : IRepositorioComum<Video>
+	public interface IRepositorioVideos : IRepositorioComum<Video>
 	{
 
 		Video InserirVideo(Video modelo, int[] idCategorias);

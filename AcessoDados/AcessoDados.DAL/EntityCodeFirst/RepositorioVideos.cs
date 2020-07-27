@@ -9,9 +9,9 @@ namespace AcessoDados.DAL.EntityCodeFirst
 {
 	public class RepositorioVideos : RepositorioComum<Video>, IRepositorioVideos
 	{
-		private RepositorioComum<VideoCategoria> _repoVideoCategoria;
+		private IRepositorioComum<VideoCategoria> _repoVideoCategoria;
 
-		public RepositorioVideos(IPrincipal currentUser, RepositorioComum<VideoCategoria> repoVideoCategoria)
+		public RepositorioVideos(IPrincipal currentUser, IRepositorioComum<VideoCategoria> repoVideoCategoria)
 			: base(currentUser)
 		{
 			_repoVideoCategoria = repoVideoCategoria;
