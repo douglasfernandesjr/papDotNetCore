@@ -6,13 +6,12 @@ namespace AcessoDados.DAL.EntityCodeFirst
 {
 	public interface IRepositorioComum<T>
 	{
-		 T Inserir(T modelo);
+		T Inserir(T modelo);
 
-
-		 List<T> Listar();
+		List<T> Listar();
 
 		void Excluir(T modelo);
 
-		 T Atualizar(T modelo);
+		T Atualizar(T modelo);
 	}
 }
