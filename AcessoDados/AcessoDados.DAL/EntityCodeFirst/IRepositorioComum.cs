@@ -13,5 +13,7 @@ namespace AcessoDados.DAL.EntityCodeFirst
 		void Excluir(T modelo);
 
 		T Atualizar(T modelo);
+
+		T Obter(int id);
 	}
 }
