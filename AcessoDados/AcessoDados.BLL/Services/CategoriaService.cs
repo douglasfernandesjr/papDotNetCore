@@ -8,9 +8,9 @@ namespace AcessoDados.BLL.Services
 {
 	public class CategoriaService
 	{
-		private RepositorioComum<Categoria> _repositorio;
+		private IRepositorioComum<Categoria> _repositorio;
 
-		public CategoriaService(RepositorioComum<Categoria> repositorio)
+		public CategoriaService(IRepositorioComum<Categoria> repositorio)
 		{
 			_repositorio = repositorio;
 		}

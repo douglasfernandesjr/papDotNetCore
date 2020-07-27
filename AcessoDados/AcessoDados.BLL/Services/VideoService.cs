@@ -9,9 +9,9 @@ namespace AcessoDados.BLL.Services
 {
 	public class VideoService
 	{
-		private RepositorioVideos _repositorio;
+		private IRepositorioVideos _repositorio;
 
-		public VideoService(RepositorioVideos repositorio)
+		public VideoService(IRepositorioVideos repositorio)
 		{
 			_repositorio = repositorio;
 		}
